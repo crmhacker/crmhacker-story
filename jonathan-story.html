@@ -2,119 +2,95 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jonathan’s Journey • CRM Hacker (v-JS-001)</title>
-<meta name="description" content="From kitchens and quotas to clever systems — Jonathan’s path to building CRM Hacker and the playbook he brings to clients." />
-<link rel="preconnect" href="https://images.unsplash.com">
+<title>Jonathan’s Story • CRM Hacker</title>
+<link rel="preconnect" href="https://static.wixstatic.com">
 <style>
 :root{
-  --sand:#FFF9F3; --sea:#F3FFFA; --ink:#173634; --muted:#587A76; --teal:#1F6E68; --coral:#FF8A70; --sun:#FFC876;
-  --line:rgba(0,0,0,.08); --shadow:0 16px 40px rgba(0,0,0,.08);
+  --bg:#F7FAFF; --ink:#0F1B2A; --muted:#5E6B7A; --brand:#176BFF; --line:rgba(0,0,0,.08);
+  --shadow:0 16px 40px rgba(15,27,42,.08); --card:#fff;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:linear-gradient(180deg,var(--sand),var(--sea));color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-a{color:var(--teal);text-decoration:none}
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1160px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+a{color:var(--brand);text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:22px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:36px;width:auto;border-radius:6px}
 .nav .right a{margin-left:16px;font-weight:700}
 .hero{
-  position:relative;isolation:isolate;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.80),rgba(255,255,255,.80)),
-    url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1920&auto=format&fit=crop&v=js1'); /* open laptop + beach vibe */
-  background-size:cover;background-position:center
+  background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.88)),
+             url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+  padding:80px 22px;text-align:center;border-bottom:1px solid var(--line)
 }
-.hero .inner{max-width:900px;padding:56px 22px}
-.badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#7C5A00;font-weight:800}
-h1{font-size:44px;line-height:1.08;margin:12px 0 8px}
-.lead{font-size:18px;color:var(--muted)}
-.section{max-width:1100px;margin:40px auto;padding:0 22px}
+h1{font-size:42px;line-height:1.1;margin:12px 0}
+.lead{max-width:760px;margin:0 auto;color:var(--muted)}
+.section{margin:40px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:24px}
 .grid{display:grid;gap:20px}
-.cols-2{grid-template-columns:1.1fr 1fr}
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:22px}
-h2{font-size:28px;margin:0 0 8px}
-p{font-size:18px;line-height:1.62;margin:8px 0}
-.quote{font-style:italic;color:var(--muted);border-left:4px solid var(--coral);padding-left:14px;margin:12px 0}
-.figure{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-.figure img{width:100%;display:block}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
-.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
-.cta{background:linear-gradient(135deg,#FFF,#FFF1E0);border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;box-shadow:var(--shadow)}
-button{padding:14px 22px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--coral),#FFBCAE);color:#3C1A14;font-weight:900;letter-spacing:.3px;cursor:pointer}
-button:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(255,138,112,.25)}
-.small{font-size:14px;color:var(--muted)}
-footer{padding:32px 0;text-align:center;color:var(--muted)}
-.version{position:fixed;right:10px;bottom:10px;background:#fff;color:#25625D;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font:700 12px/1.2 system-ui;z-index:9999;opacity:.95;box-shadow:0 8px 18px rgba(0,0,0,.06)}
-@media (max-width:980px){ .cols-2{grid-template-columns:1fr} h1{font-size:36px}}
+.cols-2{grid-template-columns:1fr 1fr}
+@media(max-width:900px){.cols-2{grid-template-columns:1fr}h1{font-size:34px}}
 </style>
 </head>
 <body>
 
 <!-- Nav -->
 <div class="nav">
-  <div class="nav-inner">
-    <div><strong>CRM Hacker</strong></div>
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <img src="https://static.wixstatic.com/media/14bfb7_277acdfd50f948648ab6aac9811dd039~mv2.png/v1/fill/w_206,h_156,al_c,q_85,usm_0.66_1.00_0.01/CRM%20(1)_edited.png" alt="CRM Hacker logo">
+      <strong>CRM Hacker</strong>
+    </div>
     <div class="right">
-      <a href="crm-hacker.html">Services</a>
-      <a href="index.html">Retreat LP</a>
+      <a href="index.html">Home</a>
+      <a href="jonathan-story.html">Founder Story</a>
     </div>
   </div>
 </div>
 
 <!-- Hero -->
-<section class="hero">
-  <div class="inner">
-    <span class="badge">Founder Story</span>
-    <h1>From cooking for friends to cooking up revenue systems.</h1>
-    <p class="lead">I’m Jonathan — builder of CRM Hacker. Former quota crusher, lifelong tinkerer, weekend chef. I help teams turn scattered tools into a predictable pipeline.</p>
-  </div>
-</section>
+<header class="hero">
+  <h1>Jonathan’s Journey</h1>
+  <p class="lead">From kitchens and quotas to building CRM Hacker — the path that shaped my approach to systems, sales, and growth.</p>
+</header>
 
-<!-- Story -->
-<main class="section">
-  <div class="grid cols-2">
+<main class="wrap">
+
+  <section class="section grid cols-2">
     <div class="card">
       <h2>Chapter 1 — The Maker</h2>
-      <p>Before dashboards and deal desks, it was knives and cast-iron. Cooking taught me the craft of flow: mise en place, timing, feedback loops. That rhythm turned into a mindset — simplify, stage, execute.</p>
-      <div class="quote">“Great meals and great funnels look the same on the inside: everything in the right place, at the right time.”</div>
+      <p>Before revenue ops, my life was in the kitchen. Cooking taught me discipline, flow, and the importance of clean prep — principles that later became the backbone of how I design systems.</p>
     </div>
-    <div class="figure"><img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1300&auto=format&fit=crop&v=js1" alt="Kitchen prep"></div>
-  </div>
+    <div><img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" style="width:100%;border-radius:16px"></div>
+  </section>
 
-  <div class="grid cols-2">
-    <div class="figure"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1300&auto=format&fit=crop&v=js1" alt="Sales meeting"></div>
+  <section class="section grid cols-2">
+    <div><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" style="width:100%;border-radius:16px"></div>
     <div class="card">
       <h2>Chapter 2 — The Closer</h2>
-      <p>In sales, I learned how tiny frictions kill momentum. Wrong fields, missing data, slow handoffs. I started fixing what annoyed me — automations, sequences, cleaner opp stages — and numbers jumped. So did my obsession.</p>
-      <div class="quote">“If reps have to fight the CRM, you won’t like the forecast.”</div>
+      <p>In corporate sales I saw how messy systems crushed momentum. I started fixing what annoyed me — automations, cleaner opp stages, faster routing — and suddenly numbers jumped. That’s when my passion for RevOps clicked.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="grid cols-2">
+  <section class="section grid cols-2">
     <div class="card">
       <h2>Chapter 3 — The Builder</h2>
-      <p>CRM Hacker was born from a simple promise: <b>zero fluff, all signal</b>. Clean data, tight processes, and automations that feel invisible. Less juggling; more selling.</p>
-      <div class="kpis">
-        <div class="kpi"><b>+18–35%</b><br><span class="small">pipeline velocity (typical)</span></div>
-        <div class="kpi"><b>–40–60%</b><br><span class="small">admin clicks per opp</span></div>
-        <div class="kpi"><b>1–3 wks</b><br><span class="small">to first measurable lift</span></div>
-      </div>
+      <p>CRM Hacker was born to strip away noise and make tools disappear into the flow of selling. Today, I help tech firms build Salesforce setups that speed up deals, clean up data, and give leaders clarity.</p>
     </div>
-    <div class="figure"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1300&auto=format&fit=crop&v=js1" alt="Team collaborating"></div>
-  </div>
+    <div><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" style="width:100%;border-radius:16px"></div>
+  </section>
 
-  <div class="card cta">
-    <h2>What I do now</h2>
-    <p>Salesforce revops, end to end: architecture, migrations, automations, enablement, and analytics — shaped around your team’s real motion. I’ll design it, ship it, and prove it with numbers.</p>
-    <p><button onclick="location.href='crm-hacker.html#contact'">See services & get a plan</button></p>
-    <p class="small">South Florida based • Remote-first • Tech/SaaS focus</p>
-  </div>
+  <section class="section card" style="text-align:center">
+    <h2>What I Do Now</h2>
+    <p>Salesforce revops end-to-end: architecture, migrations, automations, analytics, enablement. I design and ship, then prove lift with numbers.</p>
+    <button onclick="location.href='index.html#contact'" style="margin-top:12px;padding:12px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,#176BFF,#5AA2FF);color:#fff;font-weight:900;cursor:pointer">Work With Me</button>
+  </section>
+
 </main>
 
-<footer>© CRM Hacker — Founder Story</footer>
-<div class="version">Story v-JS-001</div>
+<footer class="wrap" style="text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid var(--line)">
+  © CRM Hacker — Founder Story
+</footer>
 </body>
 </html>
