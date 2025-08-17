@@ -6,178 +6,418 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CRM Hacker — Salesforce RevOps for Growth (v-CHS-001)</title>
+<title>CRM Hacker — Salesforce RevOps for Growth (v-CHS-002)</title>
 <meta name="description" content="Scalable Salesforce & RevOps. Cleaner data, faster pipeline, fewer clicks. Architecture, automations, analytics, enablement." />
+<link rel="preconnect" href="https://static.wixstatic.com">
 <link rel="preconnect" href="https://images.unsplash.com">
 <style>
 :root{
   --bg:#F7FAFF; --ink:#0F1B2A; --muted:#5E6B7A; --brand:#176BFF; --mint:#00C2A8; --line:rgba(0,0,0,.08);
-  --shadow:0 16px 40px rgba(15,27,42,.08); --card:#FFFFFF;
+  --shadow:0 16px 40px rgba(15,27,42,.08); --card:#FFFFFF; --chip:#E9F1FF; --pill:#EFFFFA;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 a{color:var(--brand);text-decoration:none}
 .wrap{max-width:1160px;margin:0 auto;padding:22px}
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:36px;width:auto;border-radius:6px}
 .nav .right a{margin-left:16px;font-weight:700}
-.hero{background:
-  linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
-  url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1920&auto=format&fit=crop&v=chs1') center/cover no-repeat;
-  padding:70px 0;border-bottom:1px solid var(--line)}
-h1{font-size:44px;line-height:1.06;margin:0}
-.lead{font-size:18px;color:var(--muted);max-width:760px;margin-top:10px}
+.hero{
+  position:relative;isolation:isolate;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
+    url('https://static.wixstatic.com/media/14bfb7_9f0dc726fec947f698ffb7f5499ba9ce~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85,usm_0.66_1.00_0.01/crm-stars-bg.jpg');
+  background-size:cover;background-position:center;
+  border-bottom:1px solid var(--line)
+}
+.hero .wrap{padding:74px 22px 40px}
+.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--chip);border:1px solid var(--line);color:#0A3AA5;font-weight:800}
+h1{font-size:44px;line-height:1.06;margin:10px 0 10px}
+.lead{font-size:18px;color:var(--muted);max-width:760px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.btn{padding:12px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--brand),#5AA2FF);color:#fff;font-weight:900;cursor:pointer}
+.btn.secondary{background:#fff;color:var(--brand);border:1px solid var(--line)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(23,107,255,.25)}
 .grid{display:grid;gap:20px}
 .cols-3{grid-template-columns:repeat(3,1fr)}
 .cols-2{grid-template-columns:1fr 1fr}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:22px}
-.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#E9F1FF;border:1px solid var(--line);color:#0A3AA5;font-weight:800}
-li{line-height:1.6}
-button{padding:12px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--brand),#5AA2FF);color:#fff;font-weight:900;cursor:pointer}
-button:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(23,107,255,.25)}
-input,select,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:15px}
+.stat{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
 .small{font-size:14px;color:var(--muted)}
-footer{padding:30px 0;color:var(--muted);text-align:center}
+.section{margin:28px 0}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--pill);border:1px solid var(--line);color:#0D7F70;font-weight:800}
+
+/* quiz & gate */
+.tile{padding:16px;border:1px solid var(--line);border-radius:14px;margin:10px 0;background:#fff}
+.opt{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.opt input{width:auto}
+.result{border-left:4px solid var(--mint);padding-left:14px;background:#F6FFFC;border:1px solid var(--line);border-radius:12px;margin-top:12px}
 .video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
-.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
-.pill{display:inline-block;padding:6px 12px;border-radius:999px;background:#EFFFFA;border:1px solid var(--line);color:#0D7F70;font-weight:800}
+
+/* responsive */
+@media (max-width:980px){ .cols-3,.cols-2{grid-template-columns:1fr} h1{font-size:36px}}
 </style>
 </head>
 <body>
 
-<!-- Nav -->
+<!-- ===== NAV ===== -->
 <div class="nav">
   <div class="wrap nav-inner">
-    <div><strong>CRM Hacker</strong></div>
+    <div class="brand">
+      <img alt="CRM Hacker logo" src="https://static.wixstatic.com/media/14bfb7_277acdfd50f948648ab6aac9811dd039~mv2.png/v1/fill/w_206,h_156,al_c,q_85,usm_0.66_1.00_0.01/CRM%20(1)_edited.png">
+      <strong>CRM Hacker</strong>
+    </div>
     <div class="right">
-      <a href="crm-hacker-story.html">Our Story</a>
-      <a href="jonathan-story.html">Founder</a>
+      <a href="#mini-plan">Mini Plan</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 </div>
 
-<!-- Hero -->
-<section class="hero">
+<!-- ===== HERO (above the fold) ===== -->
+<header class="hero">
   <div class="wrap">
     <span class="tag">Salesforce • RevOps</span>
-    <h1>Cleaner data. Faster pipeline. Fewer clicks.</h1>
-    <p class="lead">Architecture, automations, and analytics that make selling easier. We design the motion around your team — and prove lift quickly.</p>
-    <p style="margin-top:14px"><a class="pill" href="#contact">Get a free mini plan →</a></p>
-  </div>
-</section>
-
-<!-- Offers -->
-<section class="wrap" style="margin-top:28px">
-  <div class="grid cols-3">
-    <div class="card">
-      <h3>Architecture & Migrations</h3>
-      <ul>
-        <li>Sales Cloud setup & re-architecture</li>
-        <li>Object/field design, validation, dedupe</li>
-        <li>HubSpot/other → Salesforce migrations</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Automation & Enablement</h3>
-      <ul>
-        <li>Flows, approvals, lead routing, SLAs</li>
-        <li>Sequences, templates, guided selling</li>
-        <li>Onboarding & rep playbooks</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Analytics & Ops</h3>
-      <ul>
-        <li>Dashboards & forecasting</li>
-        <li>Attribution & funnel diagnostics</li>
-        <li>Quarterly RevOps audits</li>
-      </ul>
+    <h1>Drive Efficiency. Amplify Revenue.</h1>
+    <p class="lead">Cleaner data, faster pipeline, fewer clicks. Architecture, automations, and analytics that make selling easier — with measurable lift in weeks, not quarters.</p>
+    <div class="ctas">
+      <button class="btn" onclick="document.getElementById('mini-plan').scrollIntoView({behavior:'smooth'})">Get Your Free Mini Plan</button>
+      <button class="btn secondary" onclick="document.getElementById('outcomes').scrollIntoView({behavior:'smooth'})">See Outcomes</button>
     </div>
   </div>
-</section>
+</header>
 
-<!-- Proof & Outcomes (with videos) -->
-<section class="wrap" style="margin-top:16px">
-  <div class="grid cols-2">
-    <div class="card">
-      <h3>Impact (typical)</h3>
-      <ul>
-        <li><b>+18–35%</b> pipeline velocity in first 60–90 days</li>
-        <li><b>–40–60%</b> admin clicks per opportunity</li>
-        <li><b>+12–25%</b> stage conversion lift from cleaner handoffs</li>
-      </ul>
-      <div class="kpis">
-        <div class="kpi"><b>1–3 wks</b><br><span class="small">to first measurable win</span></div>
-        <div class="kpi"><b>~95%</b><br><span class="small">rep adoption w/ playbooks</span></div>
-        <div class="kpi"><b>99.9%</b><br><span class="small">data integrity targets</span></div>
-      </div>
-      <p class="small" style="margin-top:8px">Numbers vary by team size, data quality, and complexity — but we ship measurable wins quickly.</p>
-    </div>
+<main class="wrap">
 
-    <div class="card">
-      <h3>Outcomes in 90 seconds</h3>
-      <p class="small">Swap the YouTube IDs with your own (Loom/YouTube work fine).</p>
-      <div class="video" style="margin-bottom:10px">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Fewer clicks per opp — demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video">
-        <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0?rel=0" title="Routing + SLA that reps love" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section class="wrap" id="contact" style="margin:24px 0">
-  <div class="grid cols-2">
-    <div class="card">
-      <h3>Get a free mini plan</h3>
-      <p>Tell me where it hurts. I’ll outline a 2–3 step path to cleaner pipeline and a quick win we can ship in weeks.</p>
-      <form id="leadForm">
-        <div style="display:grid;gap:10px">
-          <input name="name" placeholder="Full name" required />
-          <input name="email" type="email" placeholder="Work email" required />
-          <input name="company" placeholder="Company" />
-          <select name="motion" required>
-            <option value="">Sales motion</option>
-            <option>PLG + Sales</option>
-            <option>Outbound-led</option>
-            <option>Inbound-led</option>
-            <option>Channel/Partner</option>
-          </select>
-          <textarea name="pain" rows="4" placeholder="Biggest RevOps/CRM pain right now…"></textarea>
-          <button type="submit" id="leadBtn">Send & Request Plan</button>
-          <small class="small">I’ll reply within 1–2 business days.</small>
+  <!-- ===== EXPANDED MINI PLAN ===== -->
+  <section id="mini-plan" class="section">
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>Free Mini Plan (ships in days)</h2>
+        <p class="small">You’ll get clarity + one quick win. No fluff.</p>
+        <div class="tile">
+          <b>1) Rapid Read (48–72h)</b>
+          <ul>
+            <li>Objects & fields map • Opp stage audit • Lead/route & SLA review</li>
+            <li>Top 3 friction points (with screenshots)</li>
+          </ul>
         </div>
-      </form>
-      <div id="leadThanks" class="small" style="display:none;margin-top:8px;color:#0D7F70">✅ Got it — I’ll reply with a mini plan.</div>
-      <div id="leadErr" class="small" style="display:none;margin-top:8px;color:#B3261E">❌ Something went wrong — try again.</div>
-    </div>
-    <div class="card" style="background:linear-gradient(180deg,#FFFFFF,#F6FBFF)">
-      <h3>How we work</h3>
-      <ol>
-        <li><b>Rapid read</b> — quick audit of objects, fields, flows, dashboards</li>
-        <li><b>Quick win</b> — remove a major friction (routing, dedupe, fields)</li>
-        <li><b>Core build</b> — finalize motion, handoffs, SLAs, reporting</li>
-        <li><b>Enable</b> — train reps & managers (playbook + dashboards)</li>
-      </ol>
-      <p class="small">Project or retainer. Start small, expand with proof.</p>
-    </div>
-  </div>
-</section>
+        <div class="tile">
+          <b>2) Quick Win (5–10 days)</b>
+          <ul>
+            <li>One tangible fix (e.g., routing clean-up, dedupe, stage logic, required data rules)</li>
+            <li>Rep-facing enablement: 1-pager + 5-min loom</li>
+          </ul>
+        </div>
+        <div class="tile">
+          <b>3) Prove It</b>
+          <ul>
+            <li>Before/after KPIs: admin clicks/opp, speed-to-lead, stage conversion</li>
+            <li>Next-phase roadmap (2–3 steps) with effort/impact</li>
+          </ul>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>1–3 wks</b><br><span class="small">to first measurable win</span></div>
+          <div class="kpi"><b>–40–60%</b><br><span class="small">admin clicks per opp</span></div>
+          <div class="kpi"><b>+18–35%</b><br><span class="small">pipeline velocity (typical)</span></div>
+        </div>
+      </div>
 
-<footer>© CRM Hacker — Salesforce RevOps</footer>
+      <!-- GATED OFFER -->
+      <div class="card" id="gate">
+        <h3>Unlock your tailored action plan + video</h3>
+        <p class="small">Drop your work email — get a 2-step plan matched to your motion, plus a 2-min walkthrough video.</p>
+        <form id="gateForm">
+          <div style="display:grid;gap:10px">
+            <input name="name" placeholder="Full name" required />
+            <input name="email" type="email" placeholder="Work email" required />
+            <select name="motion" required>
+              <option value="">Sales motion</option>
+              <option>PLG + Sales</option>
+              <option>Outbound-led</option>
+              <option>Inbound-led</option>
+              <option>Channel/Partner</option>
+            </select>
+            <!-- hidden UTM capture -->
+            <input type="hidden" name="utm_source" id="utm_source">
+            <input type="hidden" name="utm_medium" id="utm_medium">
+            <input type="hidden" name="utm_campaign" id="utm_campaign">
+            <button class="btn" type="submit" id="gateBtn">Send My Plan</button>
+            <small class="small">No spam. Unsubscribe anytime.</small>
+          </div>
+        </form>
+
+        <!-- Revealed AFTER submit -->
+        <div id="gateReveal" style="display:none">
+          <div class="result">
+            <h4>Your 2-step action plan</h4>
+            <ol id="planList" style="margin-left:18px"></ol>
+          </div>
+          <div class="tile">
+            <b>90-second walkthrough</b>
+            <div class="video">
+              <iframe id="planVideo" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+                title="Mini Plan Walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="tile">
+            <button class="btn secondary" id="downloadPlan" type="button">Download the mini plan (.txt)</button>
+          </div>
+        </div>
+
+        <div id="gateErr" class="small" style="display:none;color:#B3261E;margin-top:8px">❌ Something went wrong — try again.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 90s REVOPS FIT QUIZ ===== -->
+  <section id="quiz" class="section">
+    <div class="card">
+      <h2>RevOps Fit Quiz (90 seconds)</h2>
+      <p class="small">Find your friction archetype and the best quick win.</p>
+      <form id="quizForm">
+        <div class="tile">
+          <div><b>1)</b> Forecast calls feel…</div>
+          <label class="opt"><input type="radio" name="q1" value="forecast"> Debates about truth</label>
+          <label class="opt"><input type="radio" name="q1" value="handoff"> Lots of “I thought CS owned that”</label>
+          <label class="opt"><input type="radio" name="q1" value="automation"> Manual workarounds everywhere</label>
+          <label class="opt"><input type="radio" name="q1" value="data"> We don’t trust the data</label>
+        </div>
+        <div class="tile">
+          <div><b>2)</b> Rep complaint you hear most?</div>
+          <label class="opt"><input type="radio" name="q2" value="automation"> Too many clicks</label>
+          <label class="opt"><input type="radio" name="q2" value="handoff"> Handoffs unclear</label>
+          <label class="opt"><input type="radio" name="q2" value="data"> Dirty/missing fields</label>
+          <label class="opt"><input type="radio" name="q2" value="forecast"> Stages don’t predict</label>
+        </div>
+        <div class="tile">
+          <div><b>3)</b> Biggest lead pain?</div>
+          <label class="opt"><input type="radio" name="q3" value="handoff"> Slow routing</label>
+          <label class="opt"><input type="radio" name="q3" value="data"> Dupes/no enrichment</label>
+          <label class="opt"><input type="radio" name="q3" value="automation"> No guided next step</label>
+          <label class="opt"><input type="radio" name="q3" value="forecast"> Stuck stages</label>
+        </div>
+        <button class="btn" id="quizBtn" type="submit">See my archetype</button>
+      </form>
+      <div id="quizOut" style="display:none" class="result"></div>
+    </div>
+  </section>
+
+  <!-- ===== OUTCOMES (videos) ===== -->
+  <section id="outcomes" class="section">
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Outcome: reps sell more, click less</h3>
+        <p class="small">Walkthrough: simplified opp layout, 1-click next steps, field rules that remove guesswork.</p>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0?rel=0" title="Reduced clicks demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Outcome: routing & SLAs managers trust</h3>
+        <p class="small">Walkthrough: round-robin, capacity checks, SLA alerts, dashboards that actually predict.</p>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Routing + SLA demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Get a free mini plan</h3>
+        <p>Tell me where it hurts. I’ll outline a 2–3 step path and a quick win we can ship in weeks.</p>
+        <form id="leadForm">
+          <div style="display:grid;gap:10px">
+            <input name="name" placeholder="Full name" required />
+            <input name="email" type="email" placeholder="Work email" required />
+            <input name="company" placeholder="Company" />
+            <select name="motion" required>
+              <option value="">Sales motion</option>
+              <option>PLG + Sales</option>
+              <option>Outbound-led</option>
+              <option>Inbound-led</option>
+              <option>Channel/Partner</option>
+            </select>
+            <textarea name="pain" rows="4" placeholder="Biggest RevOps/CRM pain right now…"></textarea>
+            <button class="btn" type="submit" id="leadBtn">Send & Request Plan</button>
+            <small class="small">I’ll reply within 1–2 business days.</small>
+          </div>
+        </form>
+        <div id="leadThanks" class="small" style="display:none;margin-top:8px;color:#0D7F70">✅ Got it — I’ll reply with a mini plan.</div>
+        <div id="leadErr" class="small" style="display:none;margin-top:8px;color:#B3261E">❌ Something went wrong — try again.</div>
+      </div>
+      <div class="card">
+        <h3>How we work</h3>
+        <ol>
+          <li><b>Rapid read</b> — audit objects, fields, flows, dashboards</li>
+          <li><b>Quick win</b> — fix a high-friction bottleneck in weeks</li>
+          <li><b>Core build</b> — finalize motion, handoffs, SLAs, reporting</li>
+          <li><b>Enable</b> — train reps & managers; ship playbook</li>
+        </ol>
+        <p class="small">Project or retainer. Start small, expand with proof.</p>
+        <p class="pill">South Florida • Remote-first • Tech/SaaS</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap" style="text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid var(--line)">
+  © CRM Hacker — Salesforce RevOps
+</footer>
 
 <script>
+/* ===== UTM capture ===== */
+(function(){
+  const qs=new URLSearchParams(location.search);
+  ['source','medium','campaign'].forEach(k=>{
+    const el=document.getElementById('utm_'+k);
+    if(el) el.value = qs.get('utm_'+k) || '';
+  });
+})();
+
+/* ===== Gate: submit email -> reveal tailored plan + video ===== */
+(function(){
+  const form = document.getElementById('gateForm');
+  const btn = document.getElementById('gateBtn');
+  const reveal = document.getElementById('gateReveal');
+  const list = document.getElementById('planList');
+  const video = document.getElementById('planVideo');
+  const err = document.getElementById('gateErr');
+  if(!form) return;
+  const FORM_ENDPOINT = ""; // e.g., "https://formspree.io/f/xxxxabcd"
+
+  function planFor(motion){
+    switch(motion){
+      case 'PLG + Sales': return [
+        'Event → Account match + PQL scoring in SFDC',
+        'Self-serve → AE handoff with SLA & playbook tiles'
+      ];
+      case 'Outbound-led': return [
+        'Lead routing & round-robin capacity checks',
+        'Stage logic + required data rules for forecast'
+      ];
+      case 'Inbound-led': return [
+        'Speed-to-lead alerting + enrichment & dedupe',
+        'Guided next step buttons on Lead/Contact/Oppty'
+      ];
+      case 'Channel/Partner': return [
+        'Partner sourced/assisted attribution setup',
+        'Deal registration flow + dashboards'
+      ];
+      default: return [
+        'Routing + SLA guardrails to stop leaks',
+        'Rep-facing next steps & stage hygiene'
+      ];
+    }
+  }
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault(); err.style.display='none'; btn.disabled=true;
+    const fd = new FormData(form);
+    const name = fd.get('name'); const email = fd.get('email'); const motion = fd.get('motion');
+
+    // local demo stash
+    try{
+      const stash = JSON.parse(localStorage.getItem('crm_hacker_gate')||'[]');
+      stash.push(Object.fromEntries(fd.entries()));
+      localStorage.setItem('crm_hacker_gate', JSON.stringify(stash));
+    }catch(_){}
+
+    // optional live submit
+    if(FORM_ENDPOINT){
+      try{
+        const res = await fetch(FORM_ENDPOINT, { method:'POST', body:fd, headers:{'Accept':'application/json'} });
+        if(!res.ok) throw new Error('bad');
+      }catch(ex){ err.style.display='block'; }
+    }
+
+    // personalize plan + update video (use different IDs per motion if you have them)
+    const steps = planFor(motion);
+    list.innerHTML = steps.map(s=>`<li>${s}</li>`).join('');
+    // Example: swap video per motion (replace IDs with your real ones)
+    const byMotion = {
+      'PLG + Sales':'dQw4w9WgXcQ',
+      'Outbound-led':'oHg5SJYRHA0',
+      'Inbound-led':'dQw4w9WgXcQ',
+      'Channel/Partner':'oHg5SJYRHA0'
+    };
+    const id = byMotion[motion] || 'dQw4w9WgXcQ';
+    video.src = `https://www.youtube.com/embed/${id}?rel=0`;
+
+    reveal.style.display='block';
+    btn.disabled=false;
+
+    // download handler
+    document.getElementById('downloadPlan')?.addEventListener('click', ()=>{
+      const text = `CRM Hacker — Mini Plan for ${name||'you'} (${motion})\n\nSteps:\n- ${steps.join('\n- ')}\n\nWe’ll prove lift in weeks, not quarters.`;
+      const blob = new Blob([text],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url; link.download = `CRMHacker-MiniPlan-${(motion||'General').replace(/\s+/g,'_')}.txt`;
+      document.body.appendChild(link); link.click(); link.remove();
+      URL.revokeObjectURL(url);
+    });
+  });
+})();
+
+/* ===== Quiz logic ===== */
+(function(){
+  const form = document.getElementById('quizForm');
+  const out = document.getElementById('quizOut');
+  const btn = document.getElementById('quizBtn');
+  if(!form) return;
+
+  const archetypes = {
+    data:{ title:'Data Debris', win:'Enrichment + dedupe + required rules on key stages.' },
+    handoff:{ title:'Handoff Havoc', win:'Routing + clear owner & SLA alerts for each motion.' },
+    automation:{ title:'Automation Spaghetti', win:'Consolidate flows, add guided next steps buttons.' },
+    forecast:{ title:'Forecast Fog', win:'Stage definitions + hygiene gates + dashboard tiles.' }
+  };
+
+  form.addEventListener('submit',(e)=>{
+    e.preventDefault(); btn.disabled=true;
+    const fd = new FormData(form);
+    const picks = ['q1','q2','q3'].map(k=>fd.get(k)).filter(Boolean);
+    if(picks.length<3){ alert('Please answer all questions.'); btn.disabled=false; return; }
+
+    const tally = picks.reduce((m,v)=>(m[v]=(m[v]||0)+1,m),{});
+    const top = Object.entries(tally).sort((a,b)=>b[1]-a[1])[0][0];
+    const a = archetypes[top] || archetypes.data;
+
+    out.style.display='block';
+    out.innerHTML = `
+      <div class="result">
+        <h4>Your archetype: <span style="color:#0D7F70">${a.title}</span></h4>
+        <p class="small">Best quick win: ${a.win}</p>
+        <p><a href="#mini-plan">Unlock a 2-step plan tailored to your motion →</a></p>
+      </div>
+    `;
+    btn.disabled=false;
+    out.scrollIntoView({behavior:'smooth'});
+  });
+})();
+
+/* ===== Contact form (demo/local + optional live) ===== */
 (function(){
   const form = document.getElementById('leadForm');
   const btn = document.getElementById('leadBtn');
   const ok = document.getElementById('leadThanks');
   const err = document.getElementById('leadErr');
   if(!form) return;
-
   const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxabcd"
 
   form.addEventListener('submit', async (e)=>{
